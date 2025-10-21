@@ -1,6 +1,8 @@
 import math
 
 def solution(progresses, speeds):
+    if not progresses:
+        return []
     # progresses를 한 바퀴 다 돌면서
     # (100 - progresses[i]) / speeds[i] -> 올림 한 게 정상 배포일
     lst = []
@@ -8,9 +10,9 @@ def solution(progresses, speeds):
         lst.append(math.ceil((100 - progresses[i]) / speeds[i]))
     
     answer = []
-    count = 0
+    count = 1
     standard = lst[0]
-    for i in range(len(lst)):
+    for i in range(1, len(lst)):
         if lst[i] <= standard:
             count += 1
         else:
@@ -20,5 +22,3 @@ def solution(progresses, speeds):
     answer.append(count)
 
     return answer
-
-solution([93, 30, 55], [1, 30, 5])
