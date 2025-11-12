@@ -9,17 +9,9 @@ numbers = list(map(int, input().split()))
 
 numbers.sort()
 first = numbers[-1]
-second = 0
+second = numbers[-2]
 
-for i in numbers:
-    if i >= second and i < first:
-        second = i
-
-result = 0
-for i in range(1, m + 1):
-    if i % (k + 1) == 0:
-        result += second
-    else:
-        result += first
+count = int(m / (k + 1)) * k + m % (k + 1)
+result = count * first + (m - count) * second
 
 print(result)
