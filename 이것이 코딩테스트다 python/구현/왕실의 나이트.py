@@ -3,7 +3,7 @@ import sys
 input = sys.stdin.readline
 
 # c2
-location = input()
+location = input().rstrip()
 
 dictionary = {
     'a': 1,
@@ -13,6 +13,7 @@ dictionary = {
     'e': 5,
     'f': 6,
     'g': 7,
+    'h': 8,
 }
 
 # location의 좌표를 숫자로 변환하자. 문자는 열 숫자는 행
