@@ -5,41 +5,16 @@ input = sys.stdin.readline
 # c2
 location = input().rstrip()
 
-dictionary = {
-    'a': 1,
-    'b': 2,
-    'c': 3,
-    'd': 4,
-    'e': 5,
-    'f': 6,
-    'g': 7,
-    'h': 8,
-}
-
 # location의 좌표를 숫자로 변환하자. 문자는 열 숫자는 행
-x = dictionary[location[0]]
+x = int(ord(location[0])) - int(ord('a')) + 1
 y = int(location[1])
 
-# 위 아래로 갔을 때 2칸 이상 있고, 양옆으로 1칸 이상 있는 경우
-# 양 옆으로 갔을 때 2칸 이상 있고, 위 아래로 1칸 이상 있는 경우
+steps = [(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)]
 count = 0
-
-if x - 2 > 0 and y - 1 > 0:
-    count += 1
-if x - 2 > 0 and y + 1 <= 8:
-    count += 1
-if x + 2 <= 8 and y - 1 > 0:
-    count += 1
-if x + 2 <= 8 and y + 1 <= 8:
-    count += 1
-
-if y - 2 > 0 and x - 1 > 0:
-    count += 1
-if y - 2 > 0 and x + 1 <= 8:
-    count += 1
-if y + 2 <= 8 and x - 1 > 0:
-    count += 1
-if y + 2 <= 8 and x + 1 <= 8:
-    count += 1
+for step in steps:
+    nx = x + step[0]
+    ny = y + step[1]
+    if 1 <= nx <= 8 and 1 <= ny <= 8:
+        count += 1
 
 print(count)
