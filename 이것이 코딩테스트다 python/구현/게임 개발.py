@@ -44,7 +44,6 @@ while True:
     nx = x + dx[direction]
     ny = y + dy[direction]
     if map_list[nx][ny] == 0 and not visited[nx][ny]:
-        map_list[nx][ny] = 1
         x = nx
         y = ny
         count += 1
