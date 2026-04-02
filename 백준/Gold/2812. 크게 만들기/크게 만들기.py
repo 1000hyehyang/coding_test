@@ -1,0 +1,16 @@
+n, k = map(int, input().split())
+
+number = input()
+
+stack = []
+
+for i in number:
+    while k > 0 and stack and stack[-1] < i:
+        stack.pop()
+        k -= 1
+    stack.append(i)
+
+if k > 0:
+    stack = stack[:-k]
+
+print(''.join(stack))
