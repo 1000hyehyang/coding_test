@@ -18,7 +18,7 @@ heap = [(0, 1)]   # (비용, 정점)
 answer = 0
 count = 0
 
-while heap and count < n:
+while count < n:
     cost, now = heapq.heappop(heap)
 
     if visited[now]:
